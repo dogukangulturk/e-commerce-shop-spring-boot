@@ -1,5 +1,7 @@
 package com.dogukan.ecommerceshop.model;
 
+import jakarta.persistence.GeneratedValue;
+import org.hibernate.annotations.GenericGenerator;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -9,6 +11,8 @@ import java.util.List;
 public class Product {
 
     @Id
+    @GeneratedValue(generator = "UUID")
+    @GenericGenerator(name = "UUID", strategy = "org.hibernate.id.UUIDGenerator")
     private String id;
     private String name;
     private String description;
